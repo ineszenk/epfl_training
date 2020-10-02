@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { ReactDOM } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import VanGoghImg from "./vangogh";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class ReuseableForm extends React.Component {
+  handleChange = e => {
+    let change = {};
+    change[e.target.name] = e.target.value;
+    this.setState(change);
+  };
+
+  render() {
+    return (
+      <form onSubmit={this.props.onSubmit}>
+        {this.props.children(this.handleChange)}
+        <input type="submit" />
+      </form>
+    );
+  }
 }
 
-export default App;
+// ReuseableForm.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+//   children: PropTypes.any
+// };
+
+export default ReuseableForm;
