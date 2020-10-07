@@ -33,17 +33,16 @@ export default class ProductConfig extends React.Component {
   };
 
   handleZoom = value => {
-    console.log(value);
+    console.log("HERE", value);
     this.setState({ zoom: value });
   };
 
   render() {
     console.log(this.state.zoom);
-    console.log(this.handleZoom);
     return (
       <div className="product-container">
         <Canvas zoom={this.state.zoom} />
-        <Zoom zoom={this.state.zoom} onChange={this.handleZoom} />
+        <Zoom zoom={this.state.zoom} handleZoom={this.handleZoom} />
       </div>
     );
   }

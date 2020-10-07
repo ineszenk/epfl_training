@@ -5,15 +5,7 @@ import Canvas from "./Canvas";
 import ProductConfig from "./ProductConfig";
 
 ReactDOM.render(
-  <ProductConfig>
-    {function(zoom, handleZoom) {
-      return (
-        <div className="product-container">
-          <ProductConfig.Zoom zoom={zoom} handleZoom={handleZoom} />
-          <Canvas zoom={zoom} />
-        </div>
-      );
-    }}
-  </ProductConfig>,
+  <ProductConfig />,
+
   document.getElementById("product-demo")
 );
